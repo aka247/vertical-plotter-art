@@ -67,26 +67,21 @@ def index():
         if os.path.isdir(folder_path):
             files = sorted(os.listdir(folder_path))
             # print(f"Processing folder: {folder}")
-            images = [f for f in files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp'))]
-            videos = [f for f in files if f.lower().endswith(('.mp4', '.mov', '.webm'))]
+            files = [f for f in files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp','.mp4', '.mov', '.webm'))]
         
             
-            if images:
-                preview = f'assets/img/art/{folder}/{images[0]}'  # first image as preview
-                # print(f"Preview img: {preview}")
-            elif videos:
-                preview = f'assets/img/art/{folder}/{videos[0]}'  # fallback
-                # print(f"Preview vid: {preview}")
+            if files:
+                preview = f'assets/img/art/{folder}/{files[0]}'  # first image as preview
+                # print(f"Preview files: {preview}")
             else:
                 continue
 
             projects.append({
                 "name": folder,
                 "preview": preview, # first image or video as preview
-                "images": images,
-                "videos": videos,
+                "files": files,
             })
-            #print (f"project.name: {folder}, project.path/img: assets/img/art/{folder} + '/' + {images}")
+            print (f"project.name: {folder}, project.preview: {preview}, project.files: {files}")
 
 
     return render_template("index.html", projects=projects)
