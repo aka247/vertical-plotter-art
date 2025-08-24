@@ -44,12 +44,12 @@ $('.navbar-toggle').on("click", function(){
   $('.subway-image').parallax({imageSrc: 'static/assets/img/subway-background.jpg', zIndex: '100'});
 
 // Magnific Popup
-  $('.video-gallery').magnificPopup({
-    delegate: 'a',
-    type: 'iframe',
-    gallery:{
-      enabled:true
-    }
-  });
+  // $('.video-gallery').magnificPopup({
+  //   delegate: 'a',
+  //   type: 'iframe',
+  //   gallery:{
+  //     enabled:true
+  //   }
+  // });
 
 });

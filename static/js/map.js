@@ -276,6 +276,6 @@ function initMap() {
         var marker = new google.maps.Marker({
           map: map,
           position: mapDiv,
-          title: 'Bruno Broicher | Film Producer'
+          title: 'Andrea Klostermann'
         });
       } 

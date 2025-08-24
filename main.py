@@ -1,9 +1,3 @@
-"""
-Personal Blog
-Author: Andrea Klostermann
-Date : 27.12.2024
-"""
-
 import random
 import datetime
 from datetime import date
@@ -16,12 +10,12 @@ import os
 import io
 #from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm, StocksForm, InteractiveMap
 
-my_email = "a_k@gmx.at" # os.environ.get('MY_EMAIL')
-my_email_pwd = "32434432" # os.environ.get('MY_EMAIL_PWD')
+my_email = os.environ.get('MY_EMAIL')
+my_email_pwd = os.environ.get('MY_EMAIL_PWD')
 
 # APP ######################################
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "jskfdljdsflkjdslf" #= os.environ.get('APP_SECRET')
+app.config['SECRET_KEY'] = os.environ.get('APP_SECRET')
 Bootstrap(app)
 #Bootstrap5(app)
 
@@ -64,7 +58,39 @@ def about():
 # Home #######################################
 @app.route("/")
 def index():
-    return render_template("index.html")
+    art_path = os.path.join(app.static_folder, "assets", "img", "art")
+    projects = []
+
+    for folder in sorted(os.listdir(art_path)):
+        folder_path = os.path.join(art_path, folder)
+        print(f"Checking folder: {folder_path}")
+        if os.path.isdir(folder_path):
+            files = sorted(os.listdir(folder_path))
+            # print(f"Processing folder: {folder}")
+            images = [f for f in files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp'))]
+            videos = [f for f in files if f.lower().endswith(('.mp4', '.mov', '.webm'))]
+        
+            
+            if images:
+                preview = f'assets/img/art/{folder}/{images[0]}'  # first image as preview
+                # print(f"Preview img: {preview}")
+            elif videos:
+                preview = f'assets/img/art/{folder}/{videos[0]}'  # fallback
+                # print(f"Preview vid: {preview}")
+            else:
+                continue
+
+            projects.append({
+                "name": folder,
+                "preview": preview, # first image or video as preview
+                "images": images,
+                "videos": videos,
+            })
+            #print (f"project.name: {folder}, project.path/img: assets/img/art/{folder} + '/' + {images}")
+
+
+    return render_template("index.html", projects=projects)
+
 
 if __name__ == "__main__":
     app.run( debug=True, port=5017)
