@@ -98,15 +98,29 @@
            <!-- <a data-fancybox href="https://lipsum.app/id/1/800x600">
             <img src="https://lipsum.app/id/1/200x150">
             </a> -->
-            
-            <a data-fancybox="{{ project.name }}" href="{{ url_for('static', filename=project.preview) }}">
-            <img src="{{ url_for('static',  filename=project.preview )}}" />
-            </a>
+            <div class="gallery-item">
+                <a data-fancybox="{{ project.name }}" href="{{ url_for('static', filename=project.preview) }}">
+                <img class="img-responsive" src="{{ url_for('static',  filename=project.preview )}}" alt="{{ project.name }}" />
+                </a>
+            </div>
+
+                      {# hidden images for the gallery (skip the first because it's the preview) #}
+          {% for f in project.files[1:] %}
+          <a
+            data-fancybox="{{ project.name }}"
+            href="{{ url_for('static', filename='assets/img/art/' ~ project.name ~ '/' ~ f) }}"
+            style="display: none"
+          ></a>
+          {% endfor %} 
+
+          <div class="gallery-item-caption">
+            <div><h2>{{ project.name }}</h2></div>
+          </div>
 
         {% endfor %}
             
      </div>
-
+<!--
       <div class="video-gallery">
 
         {% for project in projects %}
@@ -133,6 +147,7 @@
         </div>
         {% endfor %}
       </div>
+-->
     </section>
 
     <div class="clearfix"></div>
