@@ -19,7 +19,6 @@ app.config['SECRET_KEY'] = os.environ.get('APP_SECRET')
 Bootstrap(app)
 #Bootstrap5(app)
 
-
 ############################################
 # Show Contact Site
 # @app.route("/contact", methods=["GET", "POST"])
@@ -27,10 +26,8 @@ Bootstrap(app)
 #     if request.method == "POST":
 #         data = request.form
 #         send_email(data)
-
 #         return render_template("contact.html", msg_sent=True)
 #     return render_template("contact.html", msg_sent=False)
-
 
 # mail senden
 def send_email(data):
@@ -68,7 +65,6 @@ def index():
             files = sorted(os.listdir(folder_path))
             # print(f"Processing folder: {folder}")
             files = [f for f in files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp','.mp4', '.mov', '.webm'))]
-        
             
             if files:
                 preview = f'assets/img/art/{folder}/{files[0]}'  # first image as preview
@@ -81,8 +77,7 @@ def index():
                 "preview": preview, # first image or video as preview
                 "files": files,
             })
-            print (f"project.name: {folder}, project.preview: {preview}, project.files: {files}")
-
+            # print (f"project.name: {folder}, project.preview: {preview}, project.files: {files}")
 
     return render_template("index.html", projects=projects)
 

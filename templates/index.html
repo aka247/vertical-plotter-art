@@ -1,73 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Andrea | Artist</title>
-    <meta
-      name="description"
-      content="Andrea  is an artist headquartered in Vienna. Check out her work, see what she's about, and contact her here."
-    />
-
-    <!-- CSS Files -->
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
-    <!-- Fancybox CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
-    />
-
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300%7COpen+Sans:300,400%7COswald:300,700%7CRaleway:300,700"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body>
-    <!-- NAV BAR -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="page-scroll navbar-brand" href="#home">Andrea </a>
-          <button
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target=".navHeaderCollapse"
-          >
-            <span class="icon-bar bar1"></span>
-            <span class="icon-bar bar2"></span>
-            <span class="icon-bar bar3"></span>
-          </button>
-        </div>
-
-        <div class="collapse navbar-collapse navHeaderCollapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="page-scroll nav-underline" href="#work">Work</a></li>
-            <li><a class="page-scroll nav-underline" href="#bio">Bio</a></li>
-            <li>
-              <a class="page-scroll nav-underline" href="#about">About</a>
-            </li>
-            <li>
-              <a class="page-scroll nav-underline" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- {% include "header.html" %} -->
+{% include "header.html" %}
 
     <!-- HOME SECTION 
 <section id="home" class="home section">
@@ -87,7 +18,7 @@
     </div>
 </section> -->
 
-    <!-- WORK SECTION -->
+   <!-- WORK SECTION -->
     <section id="work" class="work section">
       <h1 class="section-header">Recent Work</h1>
       <hr class="section-header-underline" />
@@ -104,7 +35,7 @@
                 </a>
             </div>
 
-                      {# hidden images for the gallery (skip the first because it's the preview) #}
+          {# hidden images for the gallery (skip the first because it's the preview) #}
           {% for f in project.files[1:] %}
           <a
             data-fancybox="{{ project.name }}"
@@ -120,34 +51,7 @@
         {% endfor %}
             
      </div>
-<!--
-      <div class="video-gallery">
 
-        {% for project in projects %}
-
-        <div class="gallery-item">
-          {# visible preview (clickable) #}
-
-          <a data-fancybox="{{ project.name }}" href="{{ url_for('static', filename=project.preview) }}">
-            <img class="img-responsive" src="{{ url_for('static', filename=project.preview) }}" alt="{{ project.name }}" />
-          </a>
-
-          {# hidden images for the gallery (skip the first because it's the preview) #}
-          {% for f in project.files[1:] %}
-          <a
-            data-fancybox="{{ project.name }}"
-            href="{{ url_for('static', filename='assets/img/art/' ~ project.name ~ '/' ~ f) }}"
-            style="display: none"
-          ></a>
-          {% endfor %} 
-
-          <div class="gallery-item-caption">
-            <div><h2>{{ project.name }}</h2></div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
--->
     </section>
 
     <div class="clearfix"></div>
@@ -220,77 +124,6 @@
       </div>
     </section>
 
-    <!--{% include "footer.html" %} -->
+    {% include "footer.html" %}
 
-    <!-- Footer-->
-    <footer class="border-top">
-      <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-md-10 col-lg-8 col-xl-7">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/aka247/">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/_andrea_k_/">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <div class="small text-center text-muted fst-italic">
-              Copyright &copy; Andrea 2024
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-    
-    <!-- jQuery (required for Bootstrap 3) -->
-    <script src="/static/js/jquery-1.11.3.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/static/js/bootstrap.min.js') }}"></script>
-    <!-- Parallax.js Plugin -->
-    <script src="/static/js/parallax.min.js') }}"></script>
-    <!-- Fancybox -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-    <!-- Google Map js -->
-    <script
-      type="text/javascript"
-      src="/static/js/map.js') }}"
-    ></script>
-    <!-- Custom JS File-->
-    <script
-      type="text/javascript"
-      src="/static/js/index.js') }}"
-    ></script>
-    <script>
-      Fancybox.bind("[data-fancybox]", {});
-    </script>
-    <!--<script>
-    Fancybox.bind("[data-fancybox]", {
-        Toolbar: { display: ["counter","zoom","slideshow","fullscreen","close"] }
-    });
-    <!-- Icons -->
-    <script src="https://use.fontawesome.com/20ab91acc4.js"></script>
-</script>
-
-  </body>
-</html>
+   
