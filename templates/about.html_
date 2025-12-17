@@ -21,7 +21,8 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-7 d-flex align-items-center">
-<!--                <img src="static/assets/img/me.jpg" width="20%" alt="me.jpg" class="me-3"/>-->
+                {% load static %}
+                <img src="{% static 'assets/img/ak.jpg' %}" width="20%" alt="ak" class="me-3">
                 <div>
                     <p></p>
                     <h2 class="featurette-heading fw-normal lh-1">Andrea <span class="text-body-secondary">Klostermann</span></h2>
