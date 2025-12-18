@@ -50,8 +50,6 @@
     <!-- Fancybox -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-   <!-- Google Map js -->
-  <script type="text/javascript" src="/static/js/map.js"></script>
 
   <!-- Custom JS File -->
   <script type="text/javascript" src="/static/js/index.js"></script>
