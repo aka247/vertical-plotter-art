@@ -150,6 +150,11 @@ def index():
             "subtitle": "Mixed Media on Recycled Canvas, 100 x 140 cm",
             "year": 2025,
             "description": "",
+        },
+        "London Showdown":{
+            "subtitle": "Acrylic on recycled Ikea Csanvas, 95 x 135 cm",
+            "year": 2025,
+            "description": "London DNA reworked.",
         }
     }
 

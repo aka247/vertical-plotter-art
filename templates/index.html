@@ -13,7 +13,11 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans:300,400|Oswald:300,700|Raleway:300,700" rel="stylesheet">
-
+<link
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static', filename='assets/grid_icon.svg') }}"
+    />
   <!-- Font Awesome icons -->
   <script
     src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
@@ -70,6 +74,7 @@
 
           <a
             data-fancybox="{{ project.name }}"
+            data-fancybox-off="true"
             href="{{ url_for('static', filename=project.preview) }}"
             data-caption="
               <h2>{{ project.name }}</h2>
@@ -83,7 +88,7 @@
               src="{{ url_for('static', filename=project.preview) }}"
               alt="Plotter artwork {{ project.name }}"
             >
-          </a>
+        </a>
         </div>
 
         {# hidden images for the gallery (skip the first because it's the preview) #}
@@ -110,6 +115,8 @@
     </div>
   </section>
 
+    <div class="clearfix"></div>
+
   <!-- ABOUT SECTION -->
   <section id="about" class="container about section">
     <h1 class="section-header">Facts</h1>
@@ -122,13 +129,14 @@
         Standards Engineer, Free Time Data Analyst, Eclectic Programmer, Unpretentious Artist.
         <p></p>
         For information about art work, please
-        <a href="{{ url_for('contact') }}">contact me</a>.
+        <a href="mailto:a_k@gmx.at">contact me</a>.
         I also welcome feedback on my art or ideas and inspiration for new projects.
       </h5>
     </div>
   </section>
 
-  <div class="subway-image"></div>
+  <div class="rain-image"></div>
+  
 
   <!-- CONTACT SECTION -->
 

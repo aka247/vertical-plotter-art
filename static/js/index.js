@@ -41,7 +41,7 @@ $('.navbar-toggle').on("click", function(){
 // Parallax.js 
   $('#home').parallax({imageSrc: 'static/assets/img/rain_bg.jpg'});
   $('#bio').parallax({imageSrc: 'static/assets/img/rain_bg.jpg'});
-  $('.subway-image').parallax({imageSrc: 'static/assets/img/rain_bg.jpg', zIndex: '100'});
+  $('.rain-image').parallax({imageSrc: 'static/assets/img/rain_bg.jpg', zIndex: '100'});
 
 // Magnific Popup
   // $('.video-gallery').magnificPopup({
