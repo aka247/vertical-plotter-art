@@ -3,6 +3,7 @@ import datetime
 from datetime import date
 from flask import Flask, abort, render_template, redirect, url_for, flash, request, make_response
 from flask_bootstrap import Bootstrap # Bootstrap5
+from flask_frozen import Freezer
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 import smtplib
@@ -10,8 +11,6 @@ import os
 import io
 #from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm, StocksForm, InteractiveMap
 
-my_email = os.environ.get('MY_EMAIL')
-my_email_pwd = os.environ.get('MY_EMAIL_PWD')
 
 
 # APP ######################################
@@ -20,32 +19,6 @@ app.config['SECRET_KEY'] = os.environ.get('APP_SECRET')
 Bootstrap(app)
 #Bootstrap5(app)
 
-############################################
-# Show Contact Site
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
-    if request.method == "POST":
-        data = request.form
-        send_email(data)
-        return render_template("contact.html", msg_sent=True)
-    return render_template("contact.html", msg_sent=False)
-
-# mail senden
-def send_email(data):
-    name = data["name"]
-    email = data["email"]
-    phone = data["phone"]
-    message = data["message"]
-
-    email_content = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
-
-    with smtplib.SMTP('smtp.gmail.com', 587) as connection:
-        # tls to secure connection
-        connection.starttls()
-        connection.login(user=my_email, password=my_email_pwd)
-        connection.sendmail(from_addr=my_email,
-                            to_addrs=my_email,
-                            msg=email_content.encode('utf-8'))
 
 
 # Shows About Site #######################################
@@ -161,7 +134,7 @@ def index():
 
     for folder in sorted(os.listdir(art_path)):
         folder_path = os.path.join(art_path, folder)
-        print(f"Checking folder: {folder_path}")
+        # print(f"Checking folder: {folder_path}")
         if os.path.isdir(folder_path):
             files = sorted(os.listdir(folder_path))
             # print(f"Processing folder: {folder}")
@@ -181,10 +154,13 @@ def index():
             })
             # print (f"project.name: {folder}, project.preview: {preview}, project.files: {files}")
             # sort projects by year, newest first
-            projects.sort(key=lambda p: p["year"], reverse=True)
+        projects.sort(key=lambda p: p["year"], reverse=True)
 
     return render_template("index.html", projects=projects, artworks=artworks)
 
+# Freeze the app, to deploy as static site
+freezer = Freezer(app)
 
 if __name__ == "__main__":
+    #freezer.freeze()
     app.run( debug=True, port=5017)

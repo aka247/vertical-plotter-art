@@ -1,200 +1,22 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plotter Art</title>
-  <meta name="description" content="Plotter Art.">
+{% extends "base.html" %}
+{% block content %}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+ <!-- <div class="rain-image small"></div> -->
+  <section class="rain rain-small"></section>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans:300,400|Oswald:300,700|Raleway:300,700" rel="stylesheet">
-<link
-            rel="icon"
-            type="image/x-icon"
-            href="{{ url_for('static', filename='assets/grid_icon.svg') }}"
-    />
-  <!-- Font Awesome icons -->
-  <script
-    src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
-    crossorigin="anonymous"
-    defer
-  ></script>
-</head>
+  {% include "work.html" %}
 
-<body>
+  <div class="section-spacer"></div>
 
-  <!-- NAV BAR -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="page-scroll navbar-brand" href="#work">Plotter Art</a>
-        <button
-          class="navbar-toggle collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#main-nav"
-          aria-controls="main-nav"
-          aria-expanded="false"
-        >
-          <span class="icon-bar bar1"></span>
-          <span class="icon-bar bar2"></span>
-          <span class="icon-bar bar3"></span>
-        </button>
-      </div>
+ <!-- <div class="rain-image small"></div> -->
+  <section class="rain rain-small"></section>
 
-      <div class="collapse navbar-collapse navHeaderCollapse" id="main-nav">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a class="page-scroll nav-underline" href="#work">Work</a></li>
-          <li><a class="page-scroll nav-underline" href="#about">About</a></li>
-          <li><a class="page-scroll nav-underline" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  {% include "about.html" %}
 
-  <!-- WORK SECTION -->
-  <section id="work" class="work section">
-    <h1 class="section-header">Recent Work</h1>
-    <hr class="section-header-underline">
+ <!-- <div class="rain-image small"></div> -->
+  <section class="rain rain-small"></section>
 
-    <div class="video-gallery">
-      {% for project in projects %}
-        <div class="gallery-item">
-          <div class="gallery-item-caption">
-            <div>
-              <h2>{{ project.name }}</h2>
-              <p>{{ artworks[project.name]["subtitle"] }}</p>
-            </div>
-          </div>
+  {% include "contact.html" %}
 
-          <a
-            data-fancybox="{{ project.name }}"
-            data-fancybox-off="true"
-            href="{{ url_for('static', filename=project.preview) }}"
-            data-caption="
-              <h2>{{ project.name }}</h2>
-              <p><em>{{ artworks[project.name]['subtitle'] }}</em></p>
-              <p>{{ artworks[project.name]['description'] }}</p>
-              <p><small>{{ artworks[project.name]['year'] }}</small></p>
-            "
-          >
-            <img
-              class="img-responsive"
-              src="{{ url_for('static', filename=project.preview) }}"
-              alt="Plotter artwork {{ project.name }}"
-            >
-        </a>
-        </div>
+{% endblock %}
 
-        {# hidden images for the gallery (skip the first because it's the preview) #}
-        {% for f in project.files[1:] %}
-          <a
-            data-fancybox="{{ project.name }}"
-            href="{{ url_for('static', filename='assets/img/art/' ~ project.name ~ '/' ~ f) }}"
-            hidden
-          ></a>
-        {% endfor %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <div class="clearfix"></div>
-
-  <!-- BIO SECTION -->
-  <section id="bio" class="bio section">
-    <h1 class="section-header white-section-header bio-header"></h1>
-    <div class="bio-text body-texts">
-      <div class="bio-photo">
-        <img src="{{ url_for('static', filename='assets/img/ak.jpg') }}" alt="Andrea Klostermann">
-      </div>
-    </div>
-  </section>
-
-    <div class="clearfix"></div>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="container about section">
-    <h1 class="section-header">Facts</h1>
-    <hr class="section-header-underline">
-    <div class="about-wrapper">
-      <h2 class="featurette-heading fw-normal lh-1">
-        Andrea <span class="text-body-secondary">Klostermann</span>
-      </h2>
-      <h5 class="lead">
-        Standards Engineer, Free Time Data Analyst, Eclectic Programmer, Unpretentious Artist.
-        <p></p>
-        For information about art work, please
-        <a href="mailto:a_k@gmx.at">contact me</a>.
-        I also welcome feedback on my art or ideas and inspiration for new projects.
-      </h5>
-    </div>
-  </section>
-
-  <div class="rain-image"></div>
-  
-
-  <!-- CONTACT SECTION -->
-
-<section id="contact" class="contact section">
-  <h1 class="section-header">Let's Connect</h1>
-<hr class="section-header-underline">
-  <div class="contact-wrapper">
-    <ul class="contact-icons-list">
-      <li>
-        <a href="mailto:a_k@gmx.at" class="contact-icon" title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/andrea-klostermann-7a7383144/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="contact-icon" 
-           title="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.instagram.com/_andrea_k_/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="contact-icon" 
-           title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/aka247/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="contact-icon" 
-           title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-    </ul>
-    <div class="copyright">&copy; 2025 ALL RIGHTS RESERVED</div>
-  </div>
-</section>
-
-
-  <!-- SCRIPTS -->
-  <script src="/static/js/jquery-1.11.3.min.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
-  <script src="/static/js/parallax.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js" defer></script>
-  <script src="/static/js/index.js" defer></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      Fancybox.bind("[data-fancybox]", {});
-    });
-  </script>
-
-</body>
-</html>

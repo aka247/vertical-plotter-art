@@ -39,17 +39,13 @@ $('.navbar-toggle').on("click", function(){
   $(".chevron-container").hide(0).delay(4300).fadeTo(500 , 1);
 
 // Parallax.js 
-  $('#home').parallax({imageSrc: 'static/assets/img/rain_bg.jpg'});
-  $('#bio').parallax({imageSrc: 'static/assets/img/rain_bg.jpg'});
-  $('.rain-image').parallax({imageSrc: 'static/assets/img/rain_bg.jpg', zIndex: '100'});
 
-// Magnific Popup
-  // $('.video-gallery').magnificPopup({
-  //   delegate: 'a',
-  //   type: 'iframe',
-  //   gallery:{
-  //     enabled:true
-  //   }
-  // });
+  $(window).on('load', function () {
+    $('.rain').parallax({
+      imageSrc: 'static/assets/img/rain_bg.jpg',
+      zIndex: -1
+    });
+  });
+    
 
 });

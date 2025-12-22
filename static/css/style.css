@@ -76,7 +76,6 @@ img {
 }
 
 .navbar li a:active,
-.navbar li a:visited,
 .navbar li a:focus {
   color: #9d9d9d;
 }
@@ -106,20 +105,6 @@ img {
 
 .navbar-toggle .icon-bar {
   transition: all .25s ease-in-out;
-}
-
-.bar1Active {
-  transform: translateY(6px) rotate(225deg);
-}
-
-.bar3Active {
-  transform: translateY(-6px) rotate(-225deg);
-}
-
-.bar2Active {
-  top: 40px;
-  opacity: 0;
-  transform: rotate(720deg);
 }
 
 /*** Accessibility focus ***/
@@ -271,45 +256,39 @@ button:focus {
   margin: 0 auto;
 }
 
-.about-item {
-  margin: 1.6em auto;
-  padding: 0 40px;
-}
 
-.about-item .section-icon {
-  width: 100%;
-  margin: 0 auto;
-  font-size: 4.5em;
-  color: #000;
-  text-align: center;
-}
-
-.about-item .about-header {
-  padding: 10px 0;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 1.875em;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.about-item .about-text {
-  max-width: 450px;
-  font-size: 15px;
-}
-
-.about-underline {
-  max-width: 150px;
-  margin: 40px auto;
-  border-top-color: #bbb;
-  opacity: 0;
-  text-align: center;
-}
-
-.rain-image {
+/* .rain-image {
   width: 100%;
   height: 450px;
+} 
+
+.rain-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+
+/* groß 
+.rain-image.big {
+  height: 70vh;
+}
+
+/* schmal
+.rain-image.small {
+  height: 30vh;
+}
+
+/* Mobile 
+@media (max-width: 768px) {
+  .rain-image.big {
+    height: 45vh;
+  }
+  .rain-image.small {
+    height: 20vh;
+  }
+}
+*/
+
 
 /************************
         CONTACT
@@ -363,14 +342,6 @@ button:focus {
 
 .contact-icon:hover::before {
   opacity: 1;
-}
-
-
-#map {
-  position: relative;
-  max-width: 500px;
-  height: 400px;
-  margin: 40px auto 0;
 }
 
 .copyright {
@@ -483,5 +454,56 @@ button:focus {
   .video-gallery .gallery-item {
     flex: 1 1 100%;
     max-width: 100%;
+  }
+}
+
+/* Section spacer */
+.section-spacer {
+  width: 100%;
+  background: #fff;
+  height: 60px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .section-spacer {
+    height: 20px;
+  }
+}
+
+/* Kleine Phones */
+@media (max-width: 480px) {
+  .section-spacer {
+    height: 10px;
+  }
+}
+
+/* Rain image  */
+.rain {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* große Fläche (z.B. vor Recent Work) */
+.rain-large {
+  height: 60vh;
+  min-height: 350px;
+}
+
+/* schmale Streifen */
+.rain-small {
+  height: 220px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rain-large {
+    height: 40vh;
+    min-height: 260px;
+  }
+
+  .rain-small {
+    height: 160px;
   }
 }
