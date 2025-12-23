@@ -22,7 +22,7 @@ Bootstrap(app)
 
 
 # Shows About Site #######################################
-@app.route("/about")
+@app.route("/about/")
 def about():
     return render_template("about.html")
 
@@ -159,8 +159,8 @@ def index():
     return render_template("index.html", projects=projects, artworks=artworks)
 
 # Freeze the app, to deploy as static site
-freezer = Freezer(app)
+# freezer = Freezer(app)
 
 if __name__ == "__main__":
-    #freezer.freeze()
-    app.run( debug=True, port=5017)
+    # freezer.freeze()
+    app.run() #debug=True, port=5017)
