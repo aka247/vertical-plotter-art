@@ -77,8 +77,9 @@ def index():
         "Bird's Nest Line Art": {
             "subtitle": "Ink on Paper, 51 x 72 cm",
             "year": 2024,
-            "description": "The image template was essentially the same as the Bird's Nest.<br>This time, I used DrawingBotV3, which converts images into stylised drawings and allows you to export them as vector graphics. Please note that I only plotted a small part of the result, as plotting the entire image would have taken over 30 hours. I drew the rest by hand.",
+            "description": "The image template was essentially the same as that for the Bird's Nest.<br>This time, I used DrawingBotV3, which converts images into stylised drawings that can be exported as vector graphics. Please note that I only plotted part of the image, as plotting the whole thing would have taken over 30 hours. I drew the rest by hand.",
         },
+
         "Polygone 2": {
             "subtitle": "Acryl on Canvas, 100 x 120 cm",
             "year": 2020,
@@ -162,6 +163,5 @@ def index():
 # freezer = Freezer(app)
 
 if __name__ == "__main__":
-    # freezer.freeze()
     print("SECRET_KEY:", app.config['SECRET_KEY'])
     app.run() #debug=True, port=5017)
