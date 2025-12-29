@@ -163,4 +163,5 @@ def index():
 
 if __name__ == "__main__":
     # freezer.freeze()
+    print("SECRET_KEY:", app.config['SECRET_KEY'])
     app.run() #debug=True, port=5017)
