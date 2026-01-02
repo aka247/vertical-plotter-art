@@ -2,7 +2,6 @@ import random
 import datetime
 from datetime import date
 from flask import Flask, abort, render_template, redirect, url_for, flash, request, make_response
-from flask_bootstrap import Bootstrap # Bootstrap5
 from flask_frozen import Freezer
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -12,12 +11,9 @@ import io
 #from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm, StocksForm, InteractiveMap
 
 
-
 # APP ######################################
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('APP_SECRET')
-Bootstrap(app)
-#Bootstrap5(app)
 
 
 
@@ -160,8 +156,9 @@ def index():
     return render_template("index.html", projects=projects, artworks=artworks)
 
 # Freeze the app, to deploy as static site
-# freezer = Freezer(app)
+freezer = Freezer(app)
+app.config['FREEZER_RELATIVE_URLS'] = True
 
 if __name__ == "__main__":
-    print("SECRET_KEY:", app.config['SECRET_KEY'])
-    app.run() #debug=True, port=5017)
+    # app.run() #debug=True, port=5017)
+    freezer.freeze()
