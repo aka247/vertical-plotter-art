@@ -1,1 +1,0 @@
-# vertical-plotter-art
