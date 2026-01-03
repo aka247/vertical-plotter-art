@@ -152,7 +152,7 @@ def index():
         projects.sort(key=lambda p: p["year"], reverse=True)
 
     return render_template("index.html", projects=projects, artworks=artworks)
-
+ 
 # Freeze the app, to deploy as static site
 freezer = Freezer(app)
 app.config['FREEZER_RELATIVE_URLS'] = True

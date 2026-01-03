@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vertical Plotter Art</title>
+  <meta name="description" content="Vertical Plotter Art.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans:300,400|Oswald:300,700|Raleway:300,700" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon"
+        href="{{ url_for('static', filename='assets/grid_icon.svg') }}">
+
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+          crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+
+  {% include "navbar.html" %}
+
+  {% block content %}{% endblock %}
+
+  {% include "footer.html" %}
+
+  <!-- SCRIPTS -->
+  <script src="{{ url_for('static', filename='js/jquery-1.11.3.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/parallax.min.js') }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js" defer></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      Fancybox.bind("[data-fancybox]", {});
+    });
+  </script>
+
+</body>
+</html>
