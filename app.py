@@ -130,7 +130,7 @@ def index():
             "year": 2024,
             "description": "Nothing more to say.",
         },
-        "bloch's_cousin": {
+        "blochs_cousin": {
             "title": "Bloch's Cousin",
             "subtitle": "Mixed Media on Recycled Canvas, 100 x 140 cm",
             "year": 2025,
@@ -147,7 +147,7 @@ def index():
 
     for folder in sorted(os.listdir(art_path)):
         folder_path = os.path.join(art_path, folder)
-        # print(f"Checking folder: {folder_path}")
+        print(f"Checking folder: {folder_path}")
         if os.path.isdir(folder_path):
             files = sorted(os.listdir(folder_path))
             # print(f"Processing folder: {folder}")
