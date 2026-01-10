@@ -7,29 +7,29 @@
       <div class="gallery-item">
         <div class="gallery-item-caption">
           <div>
-            <h2>{{ project.name }}</h2>
-            <p>{{ artworks[project.name]["subtitle"] }}</p>
+            <h2>{{ project.title }}</h2>
+            <p>{{ artworks[project.id]["subtitle"] }}</p>
           </div>
         </div>
 
         <a
-          data-fancybox="{{ project.name }}"
+          data-fancybox="{{ project.id }}"
           href="{{ url_for('static', filename=project.preview) }}"
           data-caption="
-            <h2>{{ project.name }}</h2>
-            <p><em>{{ artworks[project.name]['subtitle'] }}</em></p>
-            <p>{{ artworks[project.name]['description'] }}</p>
-            <p><small>{{ artworks[project.name]['year'] }}</small></p>
+            <h2>{{ project.title }}</h2>
+            <p><em>{{ artworks[project.id]['subtitle'] }}</em></p>
+            <p>{{ artworks[project.id]['description'] }}</p>
+            <p><small>{{ artworks[project.id]['year'] }}</small></p>
           ">
           <img class="img-responsive"
                src="{{ url_for('static', filename=project.preview) }}"
-               alt="Vertical Plotter Artwork {{ project.name }}">
+               alt="Vertical Plotter Artwork {{ project.title }}">
         </a>
       </div>
 
       {% for f in project.files[1:] %}
-        <a data-fancybox="{{ project.name }}"
-           href="{{ url_for('static', filename='assets/img/art/' ~ project.name ~ '/' ~ f) }}"
+        <a data-fancybox="{{ project.id }}"
+           href="{{ url_for('static', filename='assets/img/art/' ~ project.id ~ '/' ~ f) }}"
            hidden></a>
       {% endfor %}
     {% endfor %}

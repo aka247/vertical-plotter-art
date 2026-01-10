@@ -160,7 +160,8 @@ def index():
                 continue
 
             projects.append({
-                "name": folder,
+                "id": folder, 
+                "title": artworks.get(folder, {}).get("title", folder),
                 "preview": preview, # first image or video as preview
                 "files": files,
                 "year": artworks.get(folder, {}).get("year", 0)  # Jahr übernehmen
@@ -172,9 +173,9 @@ def index():
     return render_template("index.html", projects=projects, artworks=artworks)
  
 # Freeze the app, to deploy as static site
-freezer = Freezer(app)
-app.config['FREEZER_RELATIVE_URLS'] = True
+#freezer = Freezer(app)
+#app.config['FREEZER_RELATIVE_URLS'] = True
 
 if __name__ == "__main__":
-#    app.run() #debug=True, port=5017)
-    freezer.freeze()
+    app.run(debug=True, port=5017)
+ #   freezer.freeze()
