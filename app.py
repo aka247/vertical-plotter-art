@@ -144,7 +144,7 @@ def index():
         }
     }
 
-     # normalize artwork keys → lowercase
+     # normalize artwork keys to lowercase
     artworks = {k.lower(): v for k, v in artworks_raw.items()}
 
     for folder in sorted(os.listdir(art_path), key=lambda x: x.lower()):
