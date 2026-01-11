@@ -162,7 +162,8 @@ def index():
         if not files:
             continue
 
-        preview = f'assets/img/art/{folder}/{files[0]}'
+        preview = f'assets/img/art/{folder.lower()}/{files[0].lower()}'
+
 
         # 🔥 Look up artwork info case-insensitive
         key = folder.lower()
@@ -171,7 +172,7 @@ def index():
         projects.append({
             "id": folder,                          # keep original folder casing
             "title": info.get("title", folder),
-            "preview": preview,
+            "preview": f"assets/img/art/{folder.lower()}/{files[0].lower()}",
             "files": files,
             "year": info.get("year", 0)
         })
