@@ -147,7 +147,7 @@ def index():
 
     for folder in sorted(os.listdir(art_path)):
         folder_path = os.path.join(art_path, folder)
-        print(f"Checking folder: {folder_path}")
+        # print(f"Checking folder: {folder_path}")
         if os.path.isdir(folder_path):
             files = sorted(os.listdir(folder_path))
             # print(f"Processing folder: {folder}")
