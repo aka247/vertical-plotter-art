@@ -147,7 +147,7 @@ def index():
 
     for folder in sorted(os.listdir(art_path)):
         folder_path = os.path.join(art_path, folder)
-        print(f"Checking folder: {folder_path}")
+        # print(f"Checking folder: {folder_path}")
         if os.path.isdir(folder_path):
             files = sorted(os.listdir(folder_path))
             # print(f"Processing folder: {folder}")
@@ -177,5 +177,5 @@ freezer = Freezer(app)
 app.config['FREEZER_RELATIVE_URLS'] = True
 
 if __name__ == "__main__":
- #   app.run(debug=True, port=5017)
+   #app.run(debug=True, port=5017)
     freezer.freeze()
