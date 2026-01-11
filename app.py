@@ -27,7 +27,7 @@ def index():
     projects = []
     
     # Artwork Info
-    artworks =  {
+    artworks_raw =  {
         "strange_dogs": {
             "title": "Strange Dogs",
             "subtitle": "Acrylic on recycled Canvas, 95 x 135 cm",
@@ -144,38 +144,48 @@ def index():
         }
     }
 
+     # normalize artwork keys → lowercase
+    artworks = {k.lower(): v for k, v in artworks_raw.items()}
 
-    for folder in sorted(os.listdir(art_path)):
+    for folder in sorted(os.listdir(art_path), key=lambda x: x.lower()):
         folder_path = os.path.join(art_path, folder)
-        # print(f"Checking folder: {folder_path}")
-        if os.path.isdir(folder_path):
-            files = sorted(os.listdir(folder_path))
-            # print(f"Processing folder: {folder}")
-            files = [f for f in files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp','.mp4', '.mov', '.webm'))]
-            
-            if files:
-                preview = f'assets/img/art/{folder}/{files[0]}'  # first image as preview
-                # print(f"Preview files: {preview}")
-            else:
-                continue
 
-            projects.append({
-                "id": folder, 
-                "title": artworks.get(folder, {}).get("title", folder),
-                "preview": preview, # first image or video as preview
-                "files": files,
-                "year": artworks.get(folder, {}).get("year", 0)  # Jahr übernehmen
-            })
-            # print (f"project.name: {folder}, project.preview: {preview}, project.files: {files}")
-            # sort projects by year, newest first
-        projects.sort(key=lambda p: p["year"], reverse=True)
+        if not os.path.isdir(folder_path):
+            continue
+
+        # List files in folder
+        files = sorted([
+            f for f in os.listdir(folder_path)
+            if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4', '.mov', '.webm'))
+        ])
+
+        if not files:
+            continue
+
+        preview = f'assets/img/art/{folder}/{files[0]}'
+
+        # 🔥 Look up artwork info case-insensitive
+        key = folder.lower()
+        info = artworks.get(key, {})
+
+        projects.append({
+            "id": folder,                          # keep original folder casing
+            "title": info.get("title", folder),
+            "preview": preview,
+            "files": files,
+            "year": info.get("year", 0)
+        })
+
+    # Sort projects by year (newest first)
+    projects.sort(key=lambda p: p["year"], reverse=True)
 
     return render_template("index.html", projects=projects, artworks=artworks)
- 
-# Freeze the app, to deploy as static site
-freezer = Freezer(app)
-app.config['FREEZER_RELATIVE_URLS'] = True
+
+
+# Freeze the app to deploy as static site
+#freezer = Freezer(app)
+#app.config['FREEZER_RELATIVE_URLS'] = True
 
 if __name__ == "__main__":
-   #app.run(debug=True, port=5017)
-    freezer.freeze()
+    app.run(debug=True, port=5017)
+    #freezer.freeze()
