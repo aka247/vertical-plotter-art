@@ -13,9 +13,11 @@ python app.py freeze || { echo "Freeze failed"; exit 1; }
 # 3️⃣ Wechsle zu gh-pages
 git checkout gh-pages || { echo "Checkout gh-pages failed"; exit 1; }
 
-# 4️⃣ Alte Dateien löschen (außer build)
+# 4️⃣ Alte Dateien löschen
 echo "Cleaning gh-pages branch..."
-rm -rf about LICENSE requirements.txt templates app.py index.html README.md static venv || true
+git rm -rf . || true         # entfernt getrackte Dateien
+rm -rf * || true             # entfernt untracked Dateien (aber nicht dotfiles)
+rm -rf .* 2>/dev/null || true # entfernt dotfiles außer .git
 
 # 5️⃣ Build in Root verschieben
 echo "Copying build files..."
