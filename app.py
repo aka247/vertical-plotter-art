@@ -34,7 +34,7 @@ def index():
             "year": 2020,
             "description": "The background is the result of edge detection in a photo of a tree cross-section. If you look closely, you can see an overpainted Udo Lindenberg."
         },
-        "falco": {
+        "falco_1": {
             "title": "Falco",
             "subtitle": "Acrylic on Canvas, 140 x 120 cm",
             "year": 2019,
@@ -88,7 +88,7 @@ def index():
             "year": 2020,
             "description": "This is my second image of a vertical pen plotter.<br>The polygons were generated automatically by software and drawn onto the finished background in two steps.<br>The white pen obviously loses colour intensity because it has a pump mechanism. This is not recommended at all for a pen plotter, especially if you leave the room frequently and let the plotter do its work.",
         },
-        "jellyfish": {
+        "jellyfish_1": {
             "title": "Jellyfish",
             "subtitle": "Ink on Paper, 59 x 84 cm",
             "year": 2021,
@@ -184,9 +184,9 @@ def index():
 
 
 # Freeze the app to deploy as static site
-freezer = Freezer(app)
-app.config['FREEZER_RELATIVE_URLS'] = True
+#freezer = Freezer(app)
+#app.config['FREEZER_RELATIVE_URLS'] = True
 
 if __name__ == "__main__":
-    #app.run(debug=True, port=5017)
-    freezer.freeze()
+    app.run(debug=True, port=5017)
+    #freezer.freeze()
