@@ -8,7 +8,7 @@
         <div class="gallery-item-caption">
           <div>
             <h2>{{ project.title }}</h2>
-            <p>{{ artworks[project.id]["subtitle"] }}</p>
+            <p>{{ project.subtitle }}</p>
           </div>
         </div>
 
@@ -17,9 +17,9 @@
           href="{{ url_for('static', filename=project.preview) }}"
           data-caption="
             <h2>{{ project.title }}</h2>
-            <p><em>{{ artworks[project.id]['subtitle'] }}</em></p>
-            <p>{{ artworks[project.id]['description'] }}</p>
-            <p><small>{{ artworks[project.id]['year'] }}</small></p>
+            <p><em>{{ project.subtitle }}</em></p>
+            <p>{{ project.description }}</p>
+            <p><small>{{ project.year }}</small></p>
           ">
 
           <div class="image-wrapper">
