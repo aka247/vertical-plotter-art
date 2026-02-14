@@ -190,9 +190,13 @@ def index():
 
 
 # Freeze the app to deploy as static site
-#freezer = Freezer(app)
-#app.config['FREEZER_RELATIVE_URLS'] = True
+freezer = Freezer(app)
+app.config['FREEZER_RELATIVE_URLS'] = True
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5017)
-    #freezer.freeze()
+    import sys
+
+    if "freeze" in sys.argv:
+        freezer.freeze()
+    else:
+        app.run(debug=True, port=5017)
