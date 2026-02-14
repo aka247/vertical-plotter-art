@@ -8,7 +8,7 @@
         <div class="gallery-item-caption">
           <div>
             <h2>{{ project.title }}</h2>
-            <p>{{ project.subtitle }}</p>
+            <p>{{ artworks[project.id]["subtitle"] }}</p>
           </div>
         </div>
 
@@ -17,23 +17,13 @@
           href="{{ url_for('static', filename=project.preview) }}"
           data-caption="
             <h2>{{ project.title }}</h2>
-            <p><em>{{ project.subtitle }}</em></p>
-            <p>{{ project.description }}</p>
-            <p><small>{{ project.year }}</small></p>
+            <p><em>{{ artworks[project.id]['subtitle'] }}</em></p>
+            <p>{{ artworks[project.id]['description'] }}</p>
+            <p><small>{{ artworks[project.id]['year'] }}</small></p>
           ">
-
-          <div class="image-wrapper">
-            <img class="img-responsive"
-                src="{{ url_for('static', filename=project.preview) }}"
-                alt="Vertical Plotter Artwork {{ project.title }}">
-
-            {% if project.sold %}
-              <img class="sold-badge"
-                  src="{{ url_for('static', filename='assets/sold_plotted_4_nadeln_wess.svg') }}"
-                  alt="Sold">
-            {% endif %}
-          </div>
-
+          <img class="img-responsive"
+               src="{{ url_for('static', filename=project.preview) }}"
+               alt="Vertical Plotter Artwork {{ project.title }}">
         </a>
       </div>
 
