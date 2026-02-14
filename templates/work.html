@@ -8,7 +8,7 @@
         <div class="gallery-item-caption">
           <div>
             <h2>{{ project.title }}</h2>
-            <p>{{ artworks[project.id]["subtitle"] }}</p>
+            <p>{{ project.subtitle }}</p>
           </div>
         </div>
 
@@ -32,6 +32,7 @@
                   alt="Sold">
             {% endif %}
           </div>
+
         </a>
       </div>
 
@@ -45,4 +46,3 @@
 </section>
 
 <div class="clearfix"></div>
-
