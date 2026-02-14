@@ -23,7 +23,7 @@ def about():
 # Home #######################################
 @app.route("/")
 def index():
-    art_path = os.path.join(app.static_folder, "assets", "img", "art")
+    art_path = os.path.abspath(os.path.join(app.static_folder, "assets", "img", "art"))
     projects = []
     
     # Artwork Info
@@ -187,7 +187,8 @@ def index():
         if not files:
             continue
 
-        preview = f'assets/img/art/{folder.lower()}/{files[0].lower()}'
+        folder_l = folder.lower()
+        files_l = [f.lower() for f in files]
 
 
         # 🔥 Look up artwork info case-insensitive
@@ -195,9 +196,9 @@ def index():
         info = artworks.get(key, {})
 
         projects.append({
-            "id": folder,                          # keep original folder casing
+            "id": folder_l,                          # keep original folder casing
             "title": info.get("title", folder),
-            "preview": f"assets/img/art/{folder.lower()}/{files[0].lower()}",
+            "preview": f"assets/img/art/{folder_l}/{files_l[0]}",
             "files": files,
             "year": info.get("year", 0),
             "sold": info.get("sold", True) 
