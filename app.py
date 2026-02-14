@@ -23,7 +23,7 @@ artworks_raw =  {
         "description": "The background is the result of edge detection in a photo of a tree cross-section. If you look closely, you can see an overpainted Udo Lindenberg.",
         "sold": False   
     },
-    "falco_1": {
+    "falco": {
         "title": "Falco",
         "subtitle": "Acrylic on Canvas, 140 x 120 cm",
         "year": 2019,
@@ -86,7 +86,7 @@ artworks_raw =  {
         "description": "This is my second image of a vertical pen plotter.<br>The polygons were generated automatically by software and drawn onto the finished background in two steps.<br>The white pen obviously loses colour intensity because it has a pump mechanism. This is not recommended at all for a pen plotter, especially if you leave the room frequently and let the plotter do its work.",
         "sold": True
     },
-    "jellyfish_1": {
+    "jellyfish": {
         "title": "Jellyfish",
         "subtitle": "Ink on Paper, 59 x 84 cm",
         "year": 2021,
@@ -148,7 +148,7 @@ artworks_raw =  {
         "description": "London DNA reworked.",
         "sold": False
     },
-    "basset_hound_2": {
+    "basset_hound2": {
         "title": "Basset Hound 2",
         "subtitle": "Acrylic on Canvas, 100 x 120 cm",
         "year": 2026,
