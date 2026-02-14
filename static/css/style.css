@@ -289,6 +289,25 @@ button:focus {
 }
 */
 
+/***********************
+        SOLD-Label
+***********************/
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.sold-badge {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+    width: 25%;        /* skaliert mit Bild */
+    max-width: 120px;  /* obere Grenze */
+    height: auto;
+    /* pointer-events: none;
+    opacity: 0.95;*/
+}
+
 
 /************************
         CONTACT
