@@ -21,9 +21,19 @@
             <p>{{ artworks[project.id]['description'] }}</p>
             <p><small>{{ artworks[project.id]['year'] }}</small></p>
           ">
-          <img class="img-responsive"
-               src="{{ url_for('static', filename=project.preview) }}"
-               alt="Vertical Plotter Artwork {{ project.title }}">
+
+          <div class="image-wrapper">
+            <img class="img-responsive"
+                src="{{ url_for('static', filename=project.preview) }}"
+                alt="Vertical Plotter Artwork {{ project.title }}">
+
+            {% if project.sold %}
+              <img class="sold-badge"
+                  src="{{ url_for('static', filename='assets/sold_plotted_4_nadeln_wess.svg') }}"
+                  alt="Sold">
+            {% endif %}
+          </div>
+
         </a>
       </div>
 
