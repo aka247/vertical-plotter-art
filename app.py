@@ -98,7 +98,7 @@ artworks_raw =  {
         "subtitle": "Acrylic on Canvas, 100 x 140 cm",
         "year": 2019,
         "description": "The picture of Marilyn was painted before the time of the plotter, so it took weeks to get it halfway right. Once it was on the wall, I discovered so many errors that I had to rework it.",
-        "sold": True
+        "sold": False
     },
     "flamingo_attack": {
         "title": "Flamingo Attack",
@@ -133,13 +133,14 @@ artworks_raw =  {
         "subtitle": "Chalk Paint/Watercolor/Wax Crayon on Recycled Canvas, 95 x 135 cm",
         "year": 2024,
         "description": "Nothing more to say.",
+        "sold": False
     },
     "blochs_cousin": {
         "title": "Bloch's Cousin",
         "subtitle": "Mixed Media on Recycled Canvas, 100 x 140 cm",
         "year": 2025,
         "description": "",
-        "sold": False
+        "sold": True
     },
     "london_showdown": {
         "title": "London Showdown",
@@ -223,9 +224,9 @@ def index():
 
 
 # Freeze the app to deploy as static site
-#
-freezer = Freezer(app)
-app.config['FREEZER_RELATIVE_URLS'] = True
+
+freezer = Freezer(app)  # auskommentieren
+app.config['FREEZER_RELATIVE_URLS'] = True   # auskommentieren
 
 if __name__ == "__main__":
     import sys
@@ -233,4 +234,6 @@ if __name__ == "__main__":
     if "freeze" in sys.argv:
         freezer.freeze()
     else:
-        app.run(debug=True, port=5019)
+       app.run(debug=True, port=5019)
+        
+   # app.run(debug=True, port=5019) 
