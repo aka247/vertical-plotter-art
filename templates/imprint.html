@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<section id="imprint" class="container imprint section">
+  <h1 class="section-header">Imprint</h1>
+  <hr class="section-header-underline" />
+  <div class="about-wrapper">
+    <div class="bio-photo">
+      <img
+        src="{{ url_for('static', filename='assets/AKL_Logo_fin.svg') }}"
+        alt="Andrea"
+      />
+    </div>
+    <div class="lead">
+      <p>DI Andrea Klostermann</p>
+      <p>1020 Vienna, Austria</p>
+      <p>andrea.klostermann@vplotter.art</p>
+      <br>
+      <p>
+        All text and images are protected by copyright. All rights reserved.<br />
+        Any further use - in particular the copying, saving, editing, or
+        distribution of the content - requires the consent of the website owner,
+        Andrea Klostermann.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
