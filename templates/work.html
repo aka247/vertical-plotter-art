@@ -26,10 +26,22 @@
                 src="{{ url_for('static', filename=project.preview) }}"
                 alt="Vertical Plotter Artwork {{ project.title }}">
 
-            {% if project.sold %}
+            {% if project.status == "sold_w" %}
               <img class="sold-badge"
-                  src="{{ url_for('static', filename='assets/sold_plotted_4_nadeln_wess.svg') }}"
+                  src="{{ url_for('static', filename='assets/sold_microsoft_72_white_frame.svg') }}"
                   alt="Sold">
+            {% elif project.status == "sold_b" %}
+              <img class="sold-badge"
+                  src="{{ url_for('static', filename='assets/sold_microsoft_72_black_frame.svg') }}"
+                  alt="Sold">
+            {% elif project.status == "private_collection_w" %}
+              <img class="private-collection-badge"
+                  src="{{ url_for('static', filename='assets/private_collection_microsoft_72_white_frame.svg') }}"
+                  alt="Private Collection">
+            {% elif project.status == "private_collection_b" %}
+              <img class="private-collection-badge"
+                  src="{{ url_for('static', filename='assets/private_collection_microsoft_72_black_frame.svg') }}"
+                  alt="Private Collection">
             {% endif %}
           </div>
 

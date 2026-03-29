@@ -257,38 +257,6 @@ button:focus {
 }
 
 
-/* .rain-image {
-  width: 100%;
-  height: 450px;
-} 
-
-.rain-image {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* groß 
-.rain-image.big {
-  height: 70vh;
-}
-
-/* schmal
-.rain-image.small {
-  height: 30vh;
-}
-
-/* Mobile 
-@media (max-width: 768px) {
-  .rain-image.big {
-    height: 45vh;
-  }
-  .rain-image.small {
-    height: 20vh;
-  }
-}
-*/
-
 /***********************
         SOLD-Label
 ***********************/
@@ -301,8 +269,19 @@ button:focus {
     position: absolute;
     bottom: 1%;
     right: 5%;
+    width: 10%;      /* skaliert mit Bild */
+    max-width: 60px; /* obere Grenze */
+    height: auto;
+    /* pointer-events: none;
+    opacity: 0.95;*/
+}
+
+.private-collection-badge {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
     width: 25%;        /* skaliert mit Bild */
-    max-width: 120px;  /* obere Grenze */
+    max-width: 180px;  /* obere Grenze */
     height: auto;
     /* pointer-events: none;
     opacity: 0.95;*/

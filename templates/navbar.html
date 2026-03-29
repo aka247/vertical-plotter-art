@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <a class="page-scroll navbar-brand" href="#work">Vertical Plotter Art</a>
+      <a class="page-scroll navbar-brand" href="{{ url_for('index') }}#work">Vertical Plotter Art</a>
 
       <button
         class="navbar-toggle collapsed"
@@ -18,9 +18,9 @@
 
     <div class="collapse navbar-collapse navHeaderCollapse" id="main-nav">
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="page-scroll nav-underline" href="#work">Work</a></li>
-        <li><a class="page-scroll nav-underline" href="#about">About</a></li>
-        <li><a class="page-scroll nav-underline" href="#contact">Contact</a></li>
+        <li><a class="page-scroll nav-underline" href="{{ url_for('index') }}#work">Work</a></li>
+        <li><a class="page-scroll nav-underline" href="{{ url_for('index') }}#about">About</a></li>
+        <li><a class="page-scroll nav-underline" href="{{ url_for('index') }}#contact">Contact</a></li>
       </ul>
     </div>
   </div>
