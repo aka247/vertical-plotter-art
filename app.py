@@ -19,14 +19,14 @@ app.config['SECRET_KEY'] = os.environ.get('APP_SECRET')
 artworks_raw =  {
     "strange_dogs": {
         "title": "Strange Dogs",
-        "subtitle": "Acrylic on recycled Canvas, 95 x 135 cm",
+        "subtitle": "Acrylic on recycled Canvas, 100 x 120 cm",
         "year": 2020,
         "description": "The background is the result of edge detection in a photo of a tree cross-section. If you look closely, you can see an overpainted Udo Lindenberg.",
         "status": None   
     },
     "falco": {
         "title": "Falco",
-        "subtitle": "Acrylic on Canvas, 140 x 120 cm",
+        "subtitle": "Acrylic on Canvas, 100 x 140 cm",
         "year": 2019,
         "description": "Falco's portrait was drawn by hand. The story behind it is similar to that of Marilyn's portrait. It was overpainted countless times until it bore a certain resemblance to the original.<br>Because this process was too time-consuming, I started working on my vertical pen plotter project.",
         "status": "private_collection_w"
@@ -40,7 +40,7 @@ artworks_raw =  {
     },
         "girl_with_headphones": {
         "title": "Girl with Headphones",
-        "subtitle": "Ink on paper, 60 x 84 cm",
+        "subtitle": "Ink on paper, 84 x 60 cm",
         "year": 2024,
         "description": "I used AI to create the image template and DrawingBotV3 for edge detection and style inspiration.<br>However, in the end, I only drew the outlines with the vertical pen plotter, as completing the entire plot would have taken dozens of hours. I drew the rest by hand.",
         "status": None
@@ -68,14 +68,14 @@ artworks_raw =  {
     },
     "birds_nest_black_version": {
         "title": "Bird's Nest Black Version",
-        "subtitle": "Ink / Watercolor on Paper, 60 x 84 cm",
+        "subtitle": "Ink / Watercolor on Paper, 84 x 60 cm",
         "year": 2024,
         "description": "3rd Version of Bird's Nest.",
         "status": None
     },
     "birds_nest_line_art": {
         "title": "Bird's Nest Line Art",
-        "subtitle": "Ink on Paper, 51 x 72 cm",
+        "subtitle": "Ink on Paper, 72 x 51 cm",
         "year": 2024,
         "description": "The image template was essentially the same as that for the Bird's Nest.<br>This time, I used DrawingBotV3, which converts images into stylised drawings that can be exported as vector graphics. Please note that I only plotted part of the image, as plotting the whole thing would have taken over 30 hours. I drew the rest by hand.",
         "status": None
@@ -110,7 +110,7 @@ artworks_raw =  {
     },
     "samurai_girl": {
         "title": "Samurai Girl",
-        "subtitle": "Acryl on Canvas, 140 x 120 cm",
+        "subtitle": "Acryl on Canvas, 120 x 160 cm",
         "year": 2023,
         "description": "I used AI to generate the image of the girl, and DrawingBotV3 to detect the edges.",
         "status": "private_collection_w"
@@ -138,7 +138,7 @@ artworks_raw =  {
     },
     "blochs_cousin": {
         "title": "Bloch's Cousin",
-        "subtitle": "Mixed Media on Recycled Canvas, 100 x 140 cm",
+        "subtitle": "Mixed Media on Recycled Canvas, 140 x 100 cm",
         "year": 2025,
         "description": "",
         "status": "sold_w"
