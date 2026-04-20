@@ -139,6 +139,7 @@ celerybeat.pid
 
 # Environments
 venv/
+.venv/
 
 # Spyder project settings
 .spyderproject
