@@ -1,0 +1,507 @@
+/* Global reset / base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+/* Bilder generell responsiv */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/************************
+        COMMON
+************************/
+
+.section-header {
+  margin: 0 auto;
+  padding-top: 60px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.white-section-header {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.section-header-underline {
+  width: 4.375em;
+  border-top: 1px solid #000;
+  margin-bottom: 30px;
+}
+
+.body-texts {
+  margin: 0 auto;
+  letter-spacing: .5px;
+  line-height: 2em;
+  text-align: justify;
+}
+
+/************************
+        NAVBAR
+************************/
+
+.navbar {
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  text-align: center;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  transition: all .1s ease-in;
+}
+
+.navbar li a:active,
+.navbar li a:focus {
+  color: #9d9d9d;
+}
+
+.nav-underline {
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition:
+    left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+    width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.nav-underline:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.navbar-toggle .icon-bar {
+  transition: all .25s ease-in-out;
+}
+
+/*** Accessibility focus ***/
+a:focus,
+button:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/************************
+        WORK SECTION
+************************/
+
+.work .video-gallery {
+  margin: 0 auto;
+  max-width: 1000px;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* 2 Spalten Desktop, 1 Spalte Mobile */
+.video-gallery .gallery-item {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  cursor: pointer;
+  flex: 1 1 calc(50% - 20px);
+  max-width: 480px;
+  min-width: 260px;
+}
+
+.video-gallery .gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity .2s ease-out, transform .2s ease-out, filter .2s ease-out;
+  transform: scale(1.05);
+}
+
+.video-gallery .gallery-item .gallery-item-caption {
+  position: absolute;
+  inset: 0;
+  padding: 4em 2em;
+  color: #fff;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.video-gallery .gallery-item h2 {
+  margin: 0;
+  padding: 0.5em 0;
+  font-weight: 800;
+  word-spacing: -0.15em;
+  overflow: hidden;
+  transition: transform .2s ease-out;
+}
+
+.video-gallery .gallery-item h2 span {
+  font-weight: 300;
+}
+
+.video-gallery .gallery-item p {
+  position: relative;
+  top: -5px;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 0.9375rem;
+  letter-spacing: 1.3px;
+  opacity: 0;
+  transition: opacity .3s cubic-bezier(0.5, 2, 0.5, 0.75),
+              transform .3s cubic-bezier(0.5, 2, 0.5, 0.75);
+  transform: scale(2);
+}
+
+/*** HOVER EFFECTS ***/
+
+.video-gallery .gallery-item:hover img {
+  opacity: .3;
+  filter: blur(5px);
+  transform: scale(1);
+}
+
+.video-gallery .gallery-item:hover h2 {
+  transform: scale(1.15);
+}
+
+.video-gallery .gallery-item:hover p {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*** CLEARFIX (Fallback) ***/
+.clearfix {
+  clear: both;
+}
+
+/************************
+        BIO SECTION
+************************/
+
+.bio {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.bio-photo {
+  float: left;
+  margin: 0.625em 1.25em 0.625em auto;
+}
+
+.bio-photo img {
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+}
+
+.bio-text {
+  position: relative;
+  max-width: 50em;
+  padding: 0 4.375em;
+  z-index: 2;
+}
+
+.bio-text p a {
+  color: #89B9F5;
+}
+
+/************************
+        ABOUT SECTION
+************************/
+
+.about {
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 3.4em;
+  background-color: #f2f3f2;
+}
+
+.about-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+/***********************
+        SOLD-Label
+***********************/
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.sold-badge {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+    width: 10%;      /* skaliert mit Bild */
+    max-width: 60px; /* obere Grenze */
+    height: auto;
+    /* pointer-events: none;
+    opacity: 0.95;*/
+}
+
+.private-collection-badge {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+    width: 25%;        /* skaliert mit Bild */
+    max-width: 180px;  /* obere Grenze */
+    height: auto;
+    /* pointer-events: none;
+    opacity: 0.95;*/
+}
+
+
+/************************
+        CONTACT
+************************/
+
+.contact-icons-list {
+  position: relative;
+  font-size: 2rem;
+  text-align: center;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.contact-icons-list li {
+  position: relative;
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  margin: 20px 15px;
+}
+
+.contact-icon {
+  display: block;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  color: #fff;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+.contact-icon:hover {
+  background-color: #fff;
+  color: #111;
+  transform: scale(1.1);
+}
+
+.contact-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 0 2px #fff;
+  transition: all .2s ease-in-out;
+}
+
+.contact-icon:hover::before {
+  opacity: 1;
+}
+
+.copyright {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: #555;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 70px;
+}
+
+/************************
+      MEDIA QUERIES
+************************/
+
+/* Tablet/kleinere Laptops */
+@media screen and (max-width: 991px) {
+  .about-item .about-text {
+    margin-bottom: 30px;
+    max-width: 325px;
+  }
+  .about-underline {
+    opacity: 1;
+  }
+}
+
+/* Mobile Navbar und Layout-Finetuning */
+@media screen and (max-width: 767px) {
+  .navbar {
+    text-align: left;
+  }
+
+  .navbar-nav > li {
+    text-align: left;
+  }
+
+  .nav-underline::after {
+    display: none;
+  }
+
+  .body-texts {
+    font-size: 15px;
+  }
+
+  .bio-photo {
+    float: none;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .bio-text {
+    padding: 0 40px;
+  }
+}
+
+/* Kleine Mobiles */
+@media screen and (max-width: 568px) {
+  .section-header {
+    font-size: 2rem;
+  }
+
+  .about-wrapper,
+  .bio-text {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .bio-photo img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .contact-icons-list {
+    font-size: 1.5rem;
+  }
+
+  .contact-icons-list li {
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    margin: 10px 5px;
+  }
+
+  .contact-icons-list li::after {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+/* Sehr kleine Screens */
+@media screen and (max-width: 350px) {
+  .section-header {
+    font-size: 1.8rem;
+  }
+
+  .video-gallery .gallery-item h2 {
+    padding: 0;
+    font-size: 1.1rem;
+  }
+
+  .body-texts {
+    font-size: 14px;
+  }
+}
+
+/* Galerie: 1 Spalte auf Mobile explizit */
+@media screen and (max-width: 768px) {
+  .video-gallery .gallery-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Section spacer */
+.section-spacer {
+  width: 100%;
+  background: #fff;
+  height: 60px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .section-spacer {
+    height: 20px;
+  }
+}
+
+/* Kleine Phones */
+@media (max-width: 480px) {
+  .section-spacer {
+    height: 10px;
+  }
+}
+
+/* Rain image  */
+.rain {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* große Fläche (z.B. vor Recent Work) */
+.rain-large {
+  height: 60vh;
+  min-height: 350px;
+}
+
+/* schmale Streifen */
+.rain-small {
+  height: 220px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rain-large {
+    height: 40vh;
+    min-height: 260px;
+  }
+
+  .rain-small {
+    height: 160px;
+  }
+}
