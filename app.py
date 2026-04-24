@@ -156,6 +156,13 @@ artworks_raw =  {
         "year": 2026,
         "description": "Impassivity in folds, second verson.",
         "status": None
+    },
+    "sitting_bull": {
+        "title": "Sitting Bull",
+        "subtitle": "Acrylic on Canvas, 100 x 120 cm",
+        "year": 2026,
+        "description": "",
+        "status": None
     }
 }
 
