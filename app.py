@@ -141,7 +141,8 @@ artworks_raw =  {
         "subtitle": "Mixed Media on Recycled Canvas, 140 x 100 cm",
         "year": 2025,
         "description": "",
-        "status": "sold_w"
+        "status": "private_collection_w"
+        # "status": "sold_w"
     },
     "london_showdown": {
         "title": "London Showdown",
@@ -157,13 +158,13 @@ artworks_raw =  {
         "description": "Impassivity in folds, second verson.",
         "status": None
     },
-    "sitting_bull": {
-        "title": "Sitting Bull",
-        "subtitle": "Acrylic on Canvas, 100 x 120 cm",
-        "year": 2026,
-        "description": "",
-        "status": None
-    }
+    # "sitting_bull": {
+    #     "title": "Sitting Bull",
+    #     "subtitle": "Acrylic on Canvas, 100 x 120 cm",
+    #     "year": 2026,
+    #     "description": "",
+    #     "status": None
+    # }
 }
 
 
