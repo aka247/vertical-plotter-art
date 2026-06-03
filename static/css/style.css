@@ -279,12 +279,12 @@ button:focus {
 .private-collection-badge {
     position: absolute;
     bottom: 1%;
-    right: 5%;
-    width: 25%;        /* skaliert mit Bild */
-    max-width: 180px;  /* obere Grenze */
+    right: 3%;
+    width: 15%;        /* skaliert mit Bild */
+    max-width: 120px;  /* obere Grenze */
     height: auto;
-    /* pointer-events: none;
-    opacity: 0.95;*/
+    /* pointer-events: none; */
+    opacity: 0.95;
 }
 
 
